@@ -59,13 +59,13 @@ describe UrlParser do
       insecure_url = UrlParser.new "http://www.google.com/search"
       expect(insecure_url.port).to eq("80")
     end
-  #   it 'with no port number and a https scheme should default to port 443' do
-  #     secure_url = UrlParser.new "https://www.google.com/search"
-  #     expect(secure_url.port).to eq("443")
-  #   end
-  #   it 'a query sting with duplicate params should only return one key value pair' do
-  #     duplicate_param = UrlParser.new "http://www.google.com:60/search?q=cat&q=overwrite#img=FunnyCat"
-  #     expect(duplicate_param.query_string).to eq({"q"=> "overwrite"})
-  #   end
+    it 'with no port number and a https scheme should default to port 443' do
+      secure_url = UrlParser.new "https://www.google.com/search"
+      expect(secure_url.port).to eq("443")
+    end
+    it 'a query sting with duplicate params should only return one key value pair' do
+      duplicate_param = UrlParser.new "http://www.google.com:60/search?q=cat&q=overwrite#img=FunnyCat"
+      expect(duplicate_param.query_string).to eq({"q"=> "overwrite"})
+    end
   end
 end
